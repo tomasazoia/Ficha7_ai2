@@ -13,7 +13,7 @@ const NovoFilme = () => {
   const [generos, setGeneros] = useState([]);
 
   useEffect(() => {
-    const fetchGeneros = async () => {
+    const generos = async () => {
       try {
         const response = await axios.get('http://localhost:3001/genero/list');
         setGeneros(response.data);
@@ -22,7 +22,7 @@ const NovoFilme = () => {
       }
     };
 
-    fetchGeneros();
+    generos();
   }, []);
 
   const handleTituloChange = (e) => setTitulo(e.target.value);

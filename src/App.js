@@ -9,7 +9,8 @@ import EditarFilme from './views/editarFilme';
 import DetalhesFilme from './views/detalhesFilme';
 import InserirGenero from './views/inserirGenero';
 import ListagemGeneros from './views/listarGeneros';
-import ListaFilmesHome from './views/listaFilmesHome'
+import ListaFilmesHome from './views/listaFilmesHome';
+import EditarFilmeEspec from './views/editarFilmeEspec'
 
 function Navbar() {
   return (
@@ -32,7 +33,7 @@ function Navbar() {
               <ul className="dropdown-menu" aria-labelledby="filmesDropdown">
                 <li><Link to="/filme/list" className="dropdown-item">Listar Filmes</Link></li>
                 <li><Link to="/filme/create" className="dropdown-item">Inserir Filme</Link></li>
-                <li><Link to="/filme/edit/:id" className="dropdown-item">Editar Filme</Link></li>
+                <li><Link to="/filme/edit" className="dropdown-item">Editar Filme</Link></li>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -152,8 +153,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/filme/list" element={<ListagemFilmes />} />
           <Route path="/filme/create" element={<InserirFilme />} />
-          <Route path="/filme/edit/:id" element={<EditarFilme />} />
+          <Route path="/filme/edit" element={<EditarFilme />} />
           <Route path="/filme/get/:id" element={<DetalhesFilme />} />
+          <Route path="/filme/edit/:id" element={<EditarFilmeEspec />} />
           <Route path="/genero/list" element={<ListagemGeneros />} />
           <Route path="/genero/create" element={<InserirGenero />} />
         </Routes>

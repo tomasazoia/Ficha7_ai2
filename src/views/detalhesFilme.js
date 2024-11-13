@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
+import { useParams, Link } from 'react-router-dom';
 
 const DetalhesFilme = () => {
   const { id } = useParams();
@@ -40,7 +38,7 @@ const DetalhesFilme = () => {
                 src={`http://localhost:3001/${filme.foto}`}
                 alt={filme.titulo}
                 className="img-fluid rounded-start"
-                style={{ maxHeight: '400px', objectFit: 'cover', width: '50%'}}
+                style={{ maxHeight: '400px', objectFit: 'cover', width: '50%' }}
               />
             </div>
             <div className="col-md-6">
@@ -52,6 +50,9 @@ const DetalhesFilme = () => {
                 {filme.genero && (
                   <p className="card-text"><strong>Género:</strong> {filme.genero.descricao}</p>
                 )}
+                <Link to={`/filme/edit/${filme.id}`} className="btn btn-warning" style={{color: 'white'}}>
+                  Editar Filme
+                </Link>
               </div>
             </div>
           </div>
@@ -65,4 +66,4 @@ const DetalhesFilme = () => {
   );
 };
 
-export default DetalhesFilme;
+export default DetalhesFilme

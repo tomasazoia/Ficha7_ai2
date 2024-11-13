@@ -7,7 +7,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-
 const MySwal = withReactContent(Swal);
 
 const ListarFilmes = () => {
@@ -62,23 +61,31 @@ const ListarFilmes = () => {
   };
 
   return (
-    
     <div className="container mt-4">
       <h1>Lista de Filmes</h1>
       <div className="row">
         {filmes.map((filme) => (
-          <div className="col-md-3" key={filme.id}>
-            <div className="card mb-4">
+          <div className="col-md-3 mt-4" key={filme.id}>
+            <div className="card mb-4 h-100 d-flex flex-column">
               <Link to={`/filme/get/${filme.id}`}>
-                <img src={`http://localhost:3001/${filme.foto}`} className="card-img-top" alt='FotoFilme' style={{ width: '100%', objectFit: 'cover', height: '400px'}} />
+                <img 
+                  src={`http://localhost:3001/${filme.foto}`} 
+                  className="card-img-top" 
+                  alt='FotoFilme' 
+                  style={{ width: '100%', objectFit: 'cover', height: '450px' }} 
+                />
               </Link>
-              <div className="card-body">
+              <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{filme.titulo}</h5>
-                <p className="card-text">{filme.descricao}</p>
+                <p className="card-text flex-grow-1">{filme.descricao}</p>
                 {filme.genero && (
                   <p className="card-text"><small className="text-muted">Género: {filme.genero.descricao}</small></p>
                 )}
-                <button onClick={() => confirmDelete(filme.id)} className="btn btn-danger" style={{ float: 'right' }}>
+                <button 
+                  onClick={() => confirmDelete(filme.id)} 
+                  className="btn btn-danger mt-auto" 
+                  style={{ float: 'right' }}
+                >
                   <i className="fas fa-trash"></i>
                 </button>
               </div>
